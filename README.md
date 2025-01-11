@@ -42,7 +42,7 @@ This project focuses on utilizing Zeek's signature framework to create pattern-b
 The analysis demonstrated the functionality of Zeek signatures to capture specific traffic patterns and log details. Logs were generated for HTTP POST and GET requests and updated to capture DNS and SNMP request/response patterns. The `signatures.log` provided insights into matched signatures, triggered events, and packet payloads.
 
 ### Project Resources
-- **Project Link**: [Introduction to Zeek Signatures](https://github.com/StephVergil/Introduction-to-Zeek-Signatures)
+- **Project Link**: [Introduction to Zeek Signatures](https://github.com/StephVergil/Introduction-to-Zeek-Signatures/blob/main/vNetLab07.docx.pdf) 
 - [Zeek Documentation](https://docs.zeek.org/)
 - [PCAP Samples](https://wiki.wireshark.org/SampleCaptures)
 
