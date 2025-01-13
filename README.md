@@ -1,53 +1,96 @@
 # Introduction to Zeek Signatures
 
-This project focuses on utilizing Zeek's signature framework to create pattern-based filters for efficient network traffic analysis. The lab explores creating and modifying signature files, analyzing network traffic for specific patterns, and generating detailed logs for matched signatures. 
+This project delves into Zeek's signature framework, demonstrating how to create and utilize pattern-based filters for efficient network traffic analysis. By working with and modifying signature files, the lab emphasizes the practical application of Zeek in identifying and logging specific network traffic patterns, ultimately enhancing the understanding of network events.
 
-### Objectives
-- Start and configure Zeek for signature-based network traffic analysis.
-- Execute premade Zeek signature files to match HTTP traffic patterns.
-- Modify Zeek signature files to identify specific UDP-based SNMP and DNS messages.
-- Analyze logs to interpret matched signatures and their corresponding events.
+---
 
-### Tools Used
-**Zeek**: For creating and executing signature-based network analysis.  
-**Sample PCAP Files**: Used as test data for signature matching.  
-**Gedit**: For viewing and editing signature files and logs.
+## Objectives
+- Configure and start Zeek for signature-based network traffic analysis.
+- Execute premade Zeek signature files to identify HTTP traffic patterns.
+- Modify Zeek signature files to capture specific UDP-based SNMP and DNS messages.
+- Analyze logs to interpret matched signatures, triggered events, and packet payloads.
 
-### Key Steps
-1. **Starting Zeek**: Initialize Zeek using the following command:  
-   `cd $ZEEK_INSTALL/bin && sudo ./zeekctl start`
-2. **Executing Premade Zeek Signatures**:
-   - Navigate to the **Lab-Scripts** directory:  
-     `cd ~/Zeek-Labs/Lab-Scripts/`
-   - View the premade signature file:  
-     `nl lab7_sec2-2.sig`
-   - Process the PCAP file using the premade signature file:  
-     `zeek -r ../Sample-PCAP/smallFlows.pcap -s ../Lab-Scripts/lab7_sec2-2.sig`
-   - View the generated `signatures.log` file:  
-     `gedit signatures.log`
-3. **Modifying Zeek Signature Files**:
-   - View the updated signature file:  
-     `nl ../Lab-Scripts/lab7_sec3-1.sig`
-   - Process the PCAP file using the updated signature file:  
-     `zeek -r ../Sample-PCAP/smallFlows.pcap -s ../Lab-Scripts/lab7_sec3-1.sig`
-   - Analyze the new `signatures.log` file for updated signature matches:  
-     `gedit signatures.log`
-4. **Cleanup and Shutdown**:
-   - Clear temporary log files:  
-     `./../Lab-Scripts/lab_clean.sh`
-   - Stop Zeek:  
-     `cd $ZEEK_INSTALL/bin && sudo ./zeekctl stop`
+---
 
-### Results
-The analysis demonstrated the functionality of Zeek signatures to capture specific traffic patterns and log details. Logs were generated for HTTP POST and GET requests and updated to capture DNS and SNMP request/response patterns. The `signatures.log` provided insights into matched signatures, triggered events, and packet payloads.
+## Tools Used
+- **Zeek**: A powerful network security monitoring tool for signature-based analysis.
+- **Sample PCAP Files**: Test datasets for validating signature matching.
+- **Gedit**: Text editor for viewing and editing signature files and logs.
 
-### Project Resources
-- **Project Link**: [Introduction to Zeek Signatures](https://github.com/StephVergil/Introduction-to-Zeek-Signatures/blob/main/vNetLab07.docx.pdf) 
-- [Zeek Documentation](https://docs.zeek.org/)
-- [PCAP Samples](https://wiki.wireshark.org/SampleCaptures)
+---
 
-### Conclusion
-This lab highlights the effectiveness of Zeek signatures for network traffic analysis. By leveraging pattern matching, Zeek signatures can identify packets following predefined formats, enabling rapid detection and efficient analysis of network events.
+## Key Steps
 
-### Disclaimer
-This project was conducted in a controlled environment. Unauthorized use of these techniques or tools outside such an environment may violate ethical guidelines and legal regulations.
+### **1. Starting Zeek**
+- Initialize Zeek to monitor and analyze network traffic using:
+  ```bash
+  cd $ZEEK_INSTALL/bin && sudo ./zeekctl start
+  ```
+
+### **2. Executing Premade Zeek Signatures**
+- Navigate to the **Lab-Scripts** directory:
+  ```bash
+  cd ~/Zeek-Labs/Lab-Scripts/
+  ```
+- View the premade signature file:
+  ```bash
+  nl lab7_sec2-2.sig
+  ```
+- Process the PCAP file with the signature file:
+  ```bash
+  zeek -r ../Sample-PCAP/smallFlows.pcap -s ../Lab-Scripts/lab7_sec2-2.sig
+  ```
+- Open the generated `signatures.log` file to review results:
+  ```bash
+  gedit signatures.log
+  ```
+
+### **3. Modifying Zeek Signature Files**
+- View the updated signature file to capture new traffic patterns:
+  ```bash
+  nl ../Lab-Scripts/lab7_sec3-1.sig
+  ```
+- Process the PCAP file using the modified signature file:
+  ```bash
+  zeek -r ../Sample-PCAP/smallFlows.pcap -s ../Lab-Scripts/lab7_sec3-1.sig
+  ```
+- Analyze the updated `signatures.log` for new matches:
+  ```bash
+  gedit signatures.log
+  ```
+
+### **4. Cleanup and Shutdown**
+- Clear temporary log files generated during the analysis:
+  ```bash
+  ./../Lab-Scripts/lab_clean.sh
+  ```
+- Stop Zeek services to complete the session:
+  ```bash
+  cd $ZEEK_INSTALL/bin && sudo ./zeekctl stop
+  ```
+
+---
+
+## Results
+The lab demonstrated the utility of Zeek signatures in capturing and analyzing specific traffic patterns. Highlights included:
+- Logs for HTTP POST and GET requests.
+- Updates to capture DNS and SNMP request/response patterns.
+- Insightful entries in `signatures.log` detailing matched signatures, triggered events, and corresponding packet payloads.
+
+---
+
+## Project Resources
+- **Project Link**: [Introduction to Zeek Signatures](https://github.com/StephVergil/Introduction-to-Zeek-Signatures/blob/main/vNetLab07.docx.pdf)
+- **Zeek Documentation**: [Zeek Documentation](https://docs.zeek.org/)
+- **Sample PCAP Files**: [PCAP Samples](https://wiki.wireshark.org/SampleCaptures)
+- **Zeek Signatures Overview**: [Zeek Signatures Framework Documentation](https://docs.zeek.org/en/master/frameworks/signatures.html)
+
+---
+
+## Conclusion
+This project highlights the effectiveness of Zeek's signature framework for network traffic analysis. By defining and refining signature patterns, Zeek can efficiently identify and log network events, providing critical insights for security monitoring and threat detection. Mastery of these techniques enables enhanced network visibility and robust security posture.
+
+---
+
+## Disclaimer
+This project was conducted in a controlled academic environment. Unauthorized use of these tools or techniques outside such an environment may violate ethical guidelines and legal regulations.
